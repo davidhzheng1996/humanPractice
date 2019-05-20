@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="starting">
+   <div class="container">
+      <div class="row">
+         <h2>Top 25 most frequent words:</h2>
+         <!-- <ol>
+         	<template v-for="word in results">
+                  <li>${word}</li>
+               </template>
+         </ol> -->
+         <table id="my-table" class="table">
+            <thead>
+               <tr>
+                  <th scope="col">Word</th>
+                  <th scope="col">Frequency</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr v-for="word in words">
+                  <th scope="row">${word.word}</th>
+                  <td>${word.frequency}</td>
+            </tr>
+            </tbody>
+         </table>
+</div>
+</div>
+</div>
+<script src="../static/js/words.js"></script>
+<script>vm.getWords({{resultid}})</script>
+{% endblock %}

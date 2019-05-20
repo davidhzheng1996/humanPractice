@@ -1,0 +1,8 @@
+.navbar{
+  margin-bottom:1%;
+}
+
+.ui-menu-item:hover{
+  cursor:pointer;
+  background-color:#d9d9d9;
+}

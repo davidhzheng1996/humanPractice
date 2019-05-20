@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="starting">
+   <div class="container">
+         <h1>Text
+         </h1>
+         <p>${text}</p>
+        </div> 
+
+<!-- Add Goal Modal -->
+<!-- End of edit article modal -->
+</div>
+<script src="../static/js/text.js"></script>
+<script>vm.getText({{resultid}})</script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="starting">
+   <div class="container">
+      <div class="row">
+         <h2>10 Most Recent Results:</h2>
+         <!-- <ol>
+         	<template v-for="word in results">
+                  <li>${word}</li>
+               </template>
+         </ol> -->
+         <table id="my-table" class="table">
+            <thead>
+               <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">StopWord</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Actions</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr v-for="item in results">
+                  <th scope="row">${item.id}</th>
+                  <td>${item.stopword}</td>
+                  <td>${item.timestamp}</td>
+                  <td>
+                     <button class="btn btn-primary" v-on:click="viewText(item.id)">View Text</button>
+                     <button class="btn btn-primary" v-on:click="viewWords(item.id)">View Words</button>
+                  </td>
+            </tr>
+            </tbody>
+         </table>
+</div>
+</div>
+</div>
+<script src="../static/js/results.js"></script>
+{% endblock %}
