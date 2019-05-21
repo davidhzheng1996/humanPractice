@@ -9,3 +9,4 @@ The website contains 2 main pages, one that contains an interface for uploading 
 
 Viewsets.py were where most of the backend apis were implemented while views.py were used to create urls for different page views. Furthermore, models.py were where the database was initialized while serializers.py were used to validate the incoming data that would be saved to the psql database.
 
+I used dictionary in order to keep count of the frequency of each word in a text document, sort them by value and then take the top 25 entries.
