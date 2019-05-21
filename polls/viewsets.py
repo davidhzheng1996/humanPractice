@@ -38,6 +38,7 @@ def processText(request):
 			result = []
 			allWords = []
 			text_string = request.data['data']
+			text_string = text_string.replace("'",'').replace('-','').replace('_','')
 			textContents = re.findall(r'\w+', text_string)
 			print(textContents)
 			for word in textContents:
@@ -71,7 +72,6 @@ def disableStopWords(request):
 		try: 
 			response = []
 			words = request.data
-			print(words)
 			stop_words = list(get_stop_words('en')) 
 			k = 0
 			for word in words:
@@ -79,7 +79,7 @@ def disableStopWords(request):
 					break;
 				if word['word'] not in stop_words and k < 25:
 					response.append(word)
-				k+=1
+					k+=1
 			return Response(response,status = status.HTTP_200_OK)
 		except Exception as e:
 			return Response(status = status.HTTP_400_BAD_REQUEST)
@@ -104,6 +104,7 @@ def saveWords(request):
 			    response.append(serializer.data)
 			else:
 				print(serializer.errors)
+				return Response(status=status.HTTP_400_BAD_REQUEST)
 			return Response(response,status = status.HTTP_200_OK)
 		except Exception as e:
 			return Response(status = status.HTTP_400_BAD_REQUEST)
@@ -144,9 +145,7 @@ def getWords(request, resultid):
 			dataList = result.words
 			print(dataList)
 			for json_obj in dataList:
-				print(json_obj)
 				temp_dict = json.loads(json_obj)
-				print(temp_dict)
 				response.append(temp_dict)
 			print(response)
 			return Response(response,status = status.HTTP_200_OK)

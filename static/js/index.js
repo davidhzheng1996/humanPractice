@@ -58,7 +58,7 @@ new Vue({
         })
       },
       saveResult: function() {
-        this.save_results['words'] = this.words;
+        this.save_results['words'] = this.results;
         this.save_results['stop'] = this.stop_words;
         this.save_results['text'] = this.text;
         this.$http.post('/api/save_result/',this.save_results)
